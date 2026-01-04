@@ -1,0 +1,112 @@
+:root {
+    --bg: #0d1117;
+    --bg-soft: #161b22;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --accent: #58a6ff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+    font-weight: 600;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Hero */
+.hero-title {
+    font-size: 3rem;
+    letter-spacing: -1px;
+}
+
+.hero-subtitle {
+    color: var(--muted);
+    margin-top: 0.5rem;
+}
+
+.hero-desc {
+    max-width: 600px;
+    margin-top: 1rem;
+    color: #c9d1d9;
+}
+
+.hero-actions {
+    margin-top: 1.5rem;
+}
+
+.hero-actions .btn {
+    margin-right: 0.5rem;
+}
+
+/* Sections */
+.section {
+    padding: 4rem 0;
+}
+
+.section-title {
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+}
+
+/* Cards */
+.skill-card,
+.project-card {
+    background: var(--bg-soft);
+    padding: 1.5rem;
+    border-radius: 8px;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.skill-card:hover,
+.project-card:hover {
+    transform: translateY(-4px);
+    background: #1f2630;
+}
+
+.project-card {
+    margin-bottom: 1.5rem;
+}
+
+.tech {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+/* Timeline */
+.timeline-item {
+    margin-bottom: 1.5rem;
+}
+
+.year {
+    color: var(--accent);
+    font-weight: 500;
+}
+
+/* Footer */
+.footer {
+    color: var(--muted);
+    font-size: 0.9rem;
+    border-top: 1px solid #21262d;
+}

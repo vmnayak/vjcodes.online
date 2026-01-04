@@ -12,122 +12,64 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+<nav class="navbar navbar-expand-lg fixed-top px-4">
+    <div class="container border-bottom border-secondary pb-2">
+        <a class="navbar-brand mono text-white" href="#">VN_DEV.sh</a>
+        <div class="ms-auto d-none d-md-flex">
+            <a href="#projects" class="nav-link px-3">Projects</a>
+            <a href="#experience" class="nav-link px-3">Experience</a>
+            <a href="#contact" class="nav-link px-3">Contact</a>
+        </div>
+    </div>
+</nav>
 
-<header class="container py-5">
-    <div class="row">
-        <div class="col-lg-8">
+<header class="container hero-section section-padding mt-5">
+    <div class="row align-items-center">
+        <div class="col-lg-7 order-2 order-lg-1 animate-up">
+            <p class="mono text-accent mb-2">/usr/bin/vijaykumar</p>
             <h1 class="hero-title">Vijaykumar Nayak</h1>
-            <p class="hero-subtitle">
-                Backend Developer · Django · Django REST Framework
-            </p>
+            <p class="hero-subtitle">Senior Backend Engineer</p>
             <p class="hero-desc">
-                I build scalable backend systems, APIs, and ERP-style applications
-                with Python, Django, PostgreSQL, and modern backend tooling.
+                Architecting scalable <span class="text-white fw-bold">Python/Django</span> ecosystems. 
+                I specialize in transforming complex business logic into high-performance, 
+                <span class="text-white">DRF-powered</span> microservices and ERP solutions.
             </p>
             <div class="hero-actions">
-                <a href="#projects" class="btn btn-outline-light">Projects</a>
-                <a href="#contact" class="btn btn-outline-secondary">Contact</a>
+                <a href="#projects" class="btn btn-main">Explore Systems</a>
+                <a href="https://github.com/yourusername" class="btn btn-outline-custom ms-2">GitHub</a>
+            </div>
+        </div>
+        <div class="col-lg-5 order-1 order-lg-2 mb-5 mb-lg-0 d-flex justify-content-center animate-up" style="animation-delay: 0.1s;">
+            <div class="photo-wrapper">
+                <img src="./img/photo.jpeg" alt="Vijaykumar Nayak" class="profile-img">
+                <div class="photo-frame"></div>
             </div>
         </div>
     </div>
 </header>
 
-<section id="skills" class="container section">
-    <h2 class="section-title">Skills</h2>
-    <div class="row g-3">
+<section id="skills" class="container section-padding">
+    <h2 class="section-label">01. Tech_Stack</h2>
+    <div class="row g-4">
         <div class="col-md-4">
-            <div class="skill-card">
-                <h4>Backend</h4>
-                <p>Python, Django, Django REST Framework, FastAPI</p>
+            <div class="skill-category">
+                <div class="mono text-accent mb-2"># CORE_BACKEND</div>
+                <p>Python (Django/DRF), FastAPI, Celery, Redis</p>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="skill-card">
-                <h4>Databases</h4>
-                <p>PostgreSQL, MySQL, SQLite, Redis</p>
+            <div class="skill-category">
+                <div class="mono text-accent mb-2"># DATA_ARCH</div>
+                <p>PostgreSQL (Optimized), MySQL, RBAC Systems, JWT Auth</p>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="skill-card">
-                <h4>Architecture</h4>
-                <p>REST APIs, RBAC, JWT, Celery, Channels</p>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="skill-card">
-                <h4>DevOps</h4>
-                <p>Linux, Nginx, Gunicorn, Docker (basic)</p>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="skill-card">
-                <h4>Frontend (Support)</h4>
-                <p>HTML, CSS, Bootstrap, JavaScript</p>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="skill-card">
-                <h4>Tools</h4>
-                <p>Git, GitHub, Postman, Swagger</p>
+            <div class="skill-category">
+                <div class="mono text-accent mb-2"># DEVOPS_TOOLS</div>
+                <p>Docker, Nginx, Gunicorn, Linux Administration</p>
             </div>
         </div>
     </div>
 </section>
-
-<section id="projects" class="container section">
-    <h2 class="section-title">Projects</h2>
-
-    <div class="project-card">
-        <h4>Manufacturing ERP System</h4>
-        <p>
-            End-to-end ERP covering Purchase Orders, GRN, Sales Orders, Invoicing,
-            Inventory, Gate Pass, Production & Reporting.
-        </p>
-        <span class="tech">Django · PostgreSQL · Celery · Redis</span>
-    </div>
-
-    <div class="project-card">
-        <h4>Hospital Meal Management System</h4>
-        <p>
-            Doctors place diet orders for patients, caterers fulfill them,
-            monthly billing and role-based access.
-        </p>
-        <span class="tech">Django · DRF · RBAC</span>
-    </div>
-
-    <div class="project-card">
-        <h4>Multi-tenant Authentication & RBAC Module</h4>
-        <p>
-            Reusable Django app providing JWT auth, dynamic permissions,
-            and UI-level role control.
-        </p>
-        <span class="tech">Django · DRF · JWT</span>
-    </div>
-</section>
-
-<section id="experience" class="container section">
-    <h2 class="section-title">Experience</h2>
-    <div class="timeline">
-        <div class="timeline-item">
-            <span class="year">2022 – Present</span>
-            <p>
-                Backend Developer focused on Django-based business applications,
-                APIs, and scalable backend systems.
-            </p>
-        </div>
-    </div>
-</section>
-
-<section id="contact" class="container section">
-    <h2 class="section-title">Contact</h2>
-    <p>Email: <a href="mailto:your.email@example.com">my.email@example.com</a></p>
-    <p>GitHub: <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/yourusername" target="_blank">linkedin.com/in/yourusername</a></p>
-</section>
-
-<footer class="container py-4 text-center footer">
-    <p>© 2026 VijayKumar · Backend Developer</p>
-</footer>
-
 </body>
 </html>

@@ -4,29 +4,56 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vijaykumar | Backend Developer</title>
+
+    <!-- Preconnect for faster resource loading -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://unpkg.com">
+
+    <!-- Theme Color for Mobile Browsers -->
+    <meta name="theme-color" content="#0a0a0c">
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <title>Vijaykumar Nayak | Backend Developer - Python, Django, DRF</title>
+
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; 
+                 script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://unpkg.com; 
+                 style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://fonts.googleapis.com; 
+                 font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net; 
+                 img-src 'self' data: https:;">
 
     <!-- SEO Meta Tags -->
     <meta name="description"
-        content="Senior Backend Engineer specializing in Python, Django, and scalable internal systems for manufacturing and operations.">
-    <meta name="keywords" content="Vijaykumar Nayak, Backend Developer, Python, Django, DRF, Manufacturing Systems">
+        content="Vijaykumar Nayak - Senior Backend Engineer with 4+ years experience in Python, Django, DRF, PostgreSQL. Specializing in ERP systems, manufacturing software, and process automation.">
+    <meta name="keywords"
+        content="Vijaykumar Nayak, Backend Developer, Python, Django, DRF, PostgreSQL, ERP Systems, Manufacturing Software, Process Automation">
     <meta name="author" content="Vijaykumar Nayak">
+    <link rel="canonical" href="https://vijaynayak.dev/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://vjcodes.online/">
-    <meta property="og:title" content="Vijaykumar | Senior Backend Engineer">
+    <meta property="og:url" content="https://vijaynayak.dev/">
+    <meta property="og:title" content="Vijaykumar Nayak | Senior Backend Engineer">
     <meta property="og:description"
-        content="Architecting scalable Python/Django ecosystems for business-critical operations.">
-    <meta property="og:image" content="https://vjcodes.online/img/photo.jpeg">
+        content="Senior Backend Engineer with 4+ years experience. Architecting scalable Python/Django ecosystems for business-critical operations.">
+    <meta property="og:image" content="https://vijaynayak.dev/img/photo.jpeg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://vjcodes.online/">
-    <meta property="twitter:title" content="Vijaykumar | Senior Backend Engineer">
+    <meta property="twitter:url" content="https://vijaynayak.dev/">
+    <meta property="twitter:title" content="Vijaykumar Nayak | Senior Backend Engineer">
     <meta property="twitter:description"
-        content="Architecting scalable Python/Django ecosystems for business-critical operations.">
-    <meta property="twitter:image" content="https://vjcodes.online/img/photo.jpeg">
+        content="Senior Backend Engineer with 4+ years experience. Architecting scalable Python/Django ecosystems for business-critical operations.">
+    <meta property="twitter:image" content="https://vijaynayak.dev/img/photo.jpeg">
 
     <!-- JSON-LD Structured Data for Google -->
     <script type="application/ld+json">
@@ -34,15 +61,20 @@
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Vijaykumar Nayak",
-      "jobTitle": "Backend Engineer",
-      "url": "https://vjcodes.online",
+      "jobTitle": "Senior Backend Engineer",
+      "url": "https://vijaynayak.dev",
       "sameAs": [
-        "https://github.com/vjcodes-online",
+        "https://github.com/vmnayak",
         "https://linkedin.com/in/vijaykumar-nayak-b935b0130"
       ],
-      "knowsAbout": ["Python", "Django", "System Architecture", "Manufacturing Systems", "PostgreSQL"],
-      "image": "https://vjcodes.online/img/photo.jpeg",
-      "description": "Senior Backend Engineer specializing in Python, Django, and scalable internal systems."
+      "knowsAbout": ["Python", "Django", "Django REST Framework", "PostgreSQL", "System Architecture", "ERP Systems", "Manufacturing Software", "Process Automation"],
+      "image": "https://vijaynayak.dev/img/photo.jpeg",
+      "description": "Senior Backend Engineer with 4+ years experience specializing in Python, Django, and scalable internal systems for manufacturing and operations.",
+      "email": "hello@vijaynayak.dev",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Proto-D Engineering Pvt. Ltd."
+      }
     }
     </script>
 
@@ -62,12 +94,12 @@
     <!-- Lenis for Smooth Scrolling -->
     <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
 
-    <style>
-        /* Styles moved to css/style.css */
-    </style>
 </head>
 
 <body>
+
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <nav class="navbar navbar-expand-lg fixed-top px-4">
         <div class="container border-bottom border-secondary pb-2">
@@ -87,7 +119,7 @@
         </div>
     </nav>
 
-    <main>
+    <main id="main-content">
         <!-- Hero Section -->
         <header class="container hero-section section-padding">
             <div class="row align-items-center">
@@ -109,6 +141,10 @@
                         </div>
                     </div> -->
 
+                    <div class="terminal-path mono mb-3">
+                        <span class="text-accent">user@vijaynayak</span>:<span class="text-secondary">~</span>$ <span
+                            id="typewriter-text"></span><span class="cursor">_</span>
+                    </div>
                     <h1 class="hero-title">Vijaykumar Nayak</h1>
                     <p class="hero-subtitle">Backend Engineer</p>
                     <p class="hero-desc">
@@ -117,14 +153,16 @@
                         <span class="text-white">DRF-powered</span> microservices and ERP solutions.
                     </p>
                     <div class="hero-actions">
-                        <a href="./assets/resume.pdf" target="_blank" class="btn btn-main btn-pulse">Download Resume</a>
+                        <a href="./assets/resume.pdf" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-main btn-pulse">Download Resume</a>
                         <a href="#contact" class="btn btn-outline-custom ms-2">Contact Me</a>
                     </div>
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2 mb-5 mb-lg-0 d-flex justify-content-center justify-content-lg-end animate-up"
                     style="animation-delay: 0.1s;">
                     <div class="photo-wrapper">
-                        <img src="./img/photo.jpeg" alt="Vijaykumar Nayak" class="profile-img">
+                        <!-- Added width/height to reduce CLS, and switched to WebP -->
+                        <img src="./img/photo.webp" alt="Vijaykumar Nayak" class="profile-img" width="280" height="280">
                         <div class="photo-frame"></div>
                     </div>
                 </div>
@@ -259,9 +297,9 @@
         <!-- Experience Timeline -->
         <section id="experience" class="container section-padding">
             <h2 class="section-label reveal-on-scroll">03. Career_Journey</h2>
-            <div class="timeline reveal-on-scroll">
+            <ol class="timeline reveal-on-scroll">
 
-                <div class="timeline-item left reveal-on-scroll">
+                <li class="timeline-item left reveal-on-scroll">
                     <div class="glass-panel p-4">
                         <span class="mono text-accent">2025 - Present</span>
                         <h4 class="mt-2 mb-1">Software Engineer</h4>
@@ -270,9 +308,9 @@
                             outsourced teams.
                             Reviewing implementations, ensuring architectural alignment</p>
                     </div>
-                </div>
+                </li>
 
-                <div class="timeline-item right reveal-on-scroll">
+                <li class="timeline-item right reveal-on-scroll">
                     <div class="glass-panel p-4">
                         <span class="mono text-accent">2024 - 2025</span>
                         <h4 class="mt-2 mb-1">Software Developer</h4>
@@ -280,9 +318,9 @@
                         <p class="mb-0">Extended a legacy ERP with email and automation tools, and developed a new ERP
                             with expanded Inventory, Purchasing, and HR features.</p>
                     </div>
-                </div>
+                </li>
 
-                <div class="timeline-item left reveal-on-scroll">
+                <li class="timeline-item left reveal-on-scroll">
                     <div class="glass-panel p-4">
                         <span class="mono text-accent">2022 - 2024</span>
                         <h4 class="mt-2 mb-1">Python Developer</h4>
@@ -291,8 +329,8 @@
                             Management System. Managed the full lifecycle from development to server deployment and
                             maintenance.</p>
                     </div>
-                </div>
-            </div>
+                </li>
+            </ol>
         </section>
 
         <!-- Domain Section -->
@@ -352,19 +390,21 @@
                     or organizations that value process understanding. If you have an opportunity where software
                     directly improves operational efficiency, let's talk.
                 </p>
-                <a href="mailto:contact@vjcodes.online" class="btn btn-main btn-lg">Say Hello</a>
+                <a href="mailto:hello@vijaynayak.dev" class="btn btn-main btn-lg">Say Hello</a>
             </div>
         </section>
     </main>
 
     <footer class="text-center py-4 text-secondary mono fs-small">
         <div class="mb-3 d-flex justify-content-center gap-4">
-            <a href="https://github.com/vjcodes-online" class="link-secondary text-decoration-none fs-4 hover-accent"><i
+            <a href="https://github.com/vmnayak" target="_blank" rel="noopener noreferrer"
+                class="link-secondary text-decoration-none fs-4 hover-accent" aria-label="GitHub Profile"><i
                     class="bi bi-github"></i></a>
-            <a href="https://linkedin.com/in/vijaykumar-nayak-b935b0130"
-                class="link-secondary text-decoration-none fs-4 hover-accent"><i class="bi bi-linkedin"></i></a>
-            <a href="mailto:contact@vjcodes.online" class="link-secondary text-decoration-none fs-4 hover-accent"><i
-                    class="bi bi-envelope-at"></i></a>
+            <a href="https://linkedin.com/in/vijaykumar-nayak-b935b0130" target="_blank" rel="noopener noreferrer"
+                class="link-secondary text-decoration-none fs-4 hover-accent" aria-label="LinkedIn Profile"><i
+                    class="bi bi-linkedin"></i></a>
+            <a href="mailto:hello@vijaynayak.dev" class="link-secondary text-decoration-none fs-4 hover-accent"
+                aria-label="Send Email"><i class="bi bi-envelope-at"></i></a>
         </div>
         <p>Designed & Built by Vijaykumar Nayak</p>
     </footer>
@@ -377,11 +417,11 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Custom JS -->
     <!-- Custom Scripts -->
     <script src="js/animations.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/terminal.js"></script>
+    <!-- <script src="js/terminal.js"></script> -->
+    <script src="js/typewriter.js"></script>
 </body>
 
 </html>

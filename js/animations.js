@@ -1,3 +1,5 @@
+'use strict';
+
 // 0. Initialize Lenis Smooth Scroll
 // Global variable to be accessed by other scripts
 let lenis;

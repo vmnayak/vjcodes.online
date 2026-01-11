@@ -11,6 +11,62 @@
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Linux Terminal Path Typer */
+.terminal-path {
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+}
+
+.cursor {
+    animation: blink 1s infinite;
+    color: var(--accent);
+    font-weight: bold;
+}
+
+@keyframes blink {
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Skip to Content Link (Accessibility) */
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent);
+    color: var(--bg);
+    padding: 12px 24px;
+    border-radius: 0 0 8px 8px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+    text-decoration: none;
+    z-index: 9999;
+    transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Hover Accent for Social Icons */
+.hover-accent {
+    transition: all 0.3s ease;
+}
+
+.hover-accent:hover {
+    color: var(--accent) !important;
+    transform: translateY(-3px);
+}
+
 /* Background Breathing Animation */
 @keyframes breathe {
 
@@ -412,11 +468,20 @@ h6 {
     animation: pulse-btn 2s infinite;
 }
 
+/* Custom Focus Lines for Keyboard Navigation */
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+}
+
 /* --- Phase 5: Visual Timeline --- */
 .timeline {
     position: relative;
     max-width: 800px;
     margin: 0 auto;
+    list-style: none;
+    /* Remove default list bullets */
+    padding: 0;
 }
 
 .timeline::after {

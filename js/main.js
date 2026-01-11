@@ -1,3 +1,5 @@
+'use strict';
+
 // 1. Mobile Menu Auto-close
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {

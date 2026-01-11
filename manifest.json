@@ -1,0 +1,17 @@
+{
+    "name": "Vijaykumar Nayak | Backend Engineer",
+    "short_name": "Vijay Nayak",
+    "description": "Portfolio of Vijaykumar Nayak, Senior Backend Engineer specializing in Python & Django.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#0a0a0c",
+    "theme_color": "#0a0a0c",
+    "orientation": "portrait",
+    "icons": [
+        {
+            "src": "assets/favicon.svg",
+            "sizes": "192x192",
+            "type": "image/svg+xml"
+        }
+    ]
+}

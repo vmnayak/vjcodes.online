@@ -100,6 +100,15 @@
 
     <!-- Lenis for Smooth Scrolling -->
     <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
+    <!-- Immediate Theme Initialization (Prevents FOUC) -->
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('theme');
+            const systemPrefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+            const theme = savedTheme || (systemPrefersLight ? 'light' : 'dark');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
 </head>
 
 <body>
@@ -110,7 +119,7 @@
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand mono text-white" href="#" aria-label="Vijaykumar Nayak Home">
+            <a class="navbar-brand mono" href="#" aria-label="Vijaykumar Nayak Home">
                 <span class="brand-dot"></span>
                 <span>VN_DEV<span class="text-accent">.py</span></span>
             </a>
@@ -128,9 +137,13 @@
                     <a href="#terminal" class="nav-link">Terminal</a>
                     <a href="#contact" class="nav-link">Contact</a>
                     <a href="./assets/resume.pdf" target="_blank" rel="noopener noreferrer"
-                        class="btn btn-main btn-sm-custom ms-lg-3 mt-2 mt-lg-0">
+                        class="btn btn-main btn-sm-custom ms-lg-2 mt-2 mt-lg-0">
                         <i class="bi bi-file-earmark-pdf"></i> Resume
                     </a>
+                    <button id="theme-toggle" class="theme-toggle-btn ms-lg-2 mt-2 mt-lg-0" aria-label="Toggle light and dark mode">
+                        <i class="bi bi-sun-fill theme-icon-sun"></i>
+                        <i class="bi bi-moon-stars-fill theme-icon-moon d-none"></i>
+                    </button>
                 </div>
             </div>
         </div>
@@ -161,8 +174,8 @@
                     <p class="hero-subtitle">Senior Backend Engineer & System Architect</p>
                     
                     <p class="hero-desc">
-                        Engineering robust, mission-critical <span class="text-white fw-semibold">Python/Django</span> ecosystems.
-                        I specialize in designing scalable <span class="text-white fw-semibold">DRF APIs</span>, multi-tier industrial ERPs,
+                        Engineering robust, mission-critical <span class="text-primary-custom fw-semibold">Python/Django</span> ecosystems.
+                        I specialize in designing scalable <span class="text-primary-custom fw-semibold">DRF APIs</span>, multi-tier industrial ERPs,
                         background worker queues, and executing zero-loss legacy database migrations.
                     </p>
 
@@ -201,9 +214,56 @@
                 </div>
 
                 <div class="col-lg-5 order-1 order-lg-2 d-flex justify-content-center">
-                    <div class="photo-wrapper">
-                        <div class="photo-glow"></div>
-                        <img src="./img/photo.webp" alt="Vijaykumar Nayak - Senior Backend Engineer" class="profile-img" width="290" height="290" loading="eager">
+                    <div class="profile-bento-card">
+                        <!-- Profile Card Header -->
+                        <div class="profile-card-header">
+                            <div class="d-flex align-items-center gap-2">
+                                <span class="status-dot"></span>
+                                <span class="mono fs-small text-primary-custom">SYS_ID: VJ_NAYAK</span>
+                            </div>
+                            <span class="badge-remote mono">Remote / Hybrid</span>
+                        </div>
+
+                        <!-- Profile Avatar with Glow -->
+                        <div class="profile-avatar-container">
+                            <div class="photo-glow"></div>
+                            <img src="./img/photo.webp" alt="Vijaykumar Nayak - Senior Backend Engineer" class="profile-bento-img" width="180" height="180" loading="eager">
+                        </div>
+
+                        <!-- Profile Specs -->
+                        <div class="profile-card-body">
+                            <div class="text-center mb-3">
+                                <h3 class="fs-5 mb-1 text-primary-custom fw-bold">Vijaykumar Nayak</h3>
+                                <p class="mono text-accent small mb-0">Senior Backend Engineer</p>
+                            </div>
+
+                            <div class="profile-specs-grid mono">
+                                <div class="spec-row">
+                                    <span class="spec-label">CORE_STACK</span>
+                                    <span class="spec-value text-primary-custom">Python • Django • DRF</span>
+                                </div>
+                                <div class="spec-row">
+                                    <span class="spec-label">DATA_STORE</span>
+                                    <span class="spec-value text-primary-custom">PostgreSQL • Redis</span>
+                                </div>
+                                <div class="spec-row">
+                                    <span class="spec-label">FOCUS</span>
+                                    <span class="spec-value text-primary-custom">Distributed Systems & ERP</span>
+                                </div>
+                                <div class="spec-row">
+                                    <span class="spec-label">STATUS</span>
+                                    <span class="spec-value text-accent">Active & Available</span>
+                                </div>
+                            </div>
+
+                            <!-- Footer Tech Chips -->
+                            <div class="mt-3 pt-3 border-top border-secondary-subtle d-flex flex-wrap justify-content-center gap-1">
+                                <span class="tech-pill">Python 3.x</span>
+                                <span class="tech-pill">PostgreSQL</span>
+                                <span class="tech-pill">Celery</span>
+                                <span class="tech-pill">Linux/Nginx</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -215,7 +275,7 @@
             <div class="row g-4">
                 <div class="col-lg-8">
                     <div class="glass-panel p-4 p-md-5 reveal-on-scroll">
-                        <p class="mb-4 lead text-white">
+                        <p class="mb-4 lead text-primary-custom">
                             I am a backend developer driven by engineering software that solves real, unglamorous, and high-consequence operational bottlenecks.
                         </p>
                         <p class="mb-4 text-secondary-custom">
@@ -238,12 +298,12 @@
                 <div class="col-lg-4">
                     <div class="bento-card reveal-on-scroll delay-1">
                         <div class="mono text-accent mb-3"># CORE_APPROACH</div>
-                        <h4 class="text-white mb-3">Engineering Principles</h4>
+                        <h4 class="text-primary-custom mb-3">Engineering Principles</h4>
                         <ul class="skill-list mb-0">
-                            <li><strong class="text-white">Correctness First:</strong> Strict relational constraints, atomic transactions, zero data corruption.</li>
-                            <li><strong class="text-white">Domain-Driven:</strong> Software shaped around physical workflows (BOM, stock, calibration).</li>
-                            <li><strong class="text-white">Practical Scalability:</strong> Clean Django ORM optimization, caching, and worker decoupling.</li>
-                            <li><strong class="text-white">Deterministic Ops:</strong> Auditable log trails, structured error handling, and robust backups.</li>
+                            <li><strong class="text-primary-custom">Correctness First:</strong> Strict relational constraints, atomic transactions, zero data corruption.</li>
+                            <li><strong class="text-primary-custom">Domain-Driven:</strong> Software shaped around physical workflows (BOM, stock, calibration).</li>
+                            <li><strong class="text-primary-custom">Practical Scalability:</strong> Clean Django ORM optimization, caching, and worker decoupling.</li>
+                            <li><strong class="text-primary-custom">Deterministic Ops:</strong> Auditable log trails, structured error handling, and robust backups.</li>
                         </ul>
                     </div>
                 </div>
@@ -392,7 +452,7 @@
                         <div class="mono text-accent mb-3"># BACKEND_&_APIS</div>
                         <div class="mb-3 fs-3">
                             <i class="devicon-python-plain text-accent me-2" data-bs-toggle="tooltip" data-bs-title="Python 3.x Scripting, Async & Core OOP"></i>
-                            <i class="devicon-django-plain text-white me-2" data-bs-toggle="tooltip" data-bs-title="Django Framework & ORM"></i>
+                            <i class="devicon-django-plain icon-adaptive me-2" data-bs-toggle="tooltip" data-bs-title="Django Framework & ORM"></i>
                             <i class="devicon-fastapi-plain text-info" data-bs-toggle="tooltip" data-bs-title="High performance API concepts"></i>
                         </div>
                         <ul class="skill-list">
@@ -410,7 +470,7 @@
                         <div class="mono text-accent mb-3"># DATA_&_MODELING</div>
                         <div class="mb-3 fs-3">
                             <i class="devicon-postgresql-plain text-info me-2" data-bs-toggle="tooltip" data-bs-title="PostgreSQL Relational DB"></i>
-                            <i class="devicon-mysql-plain text-white me-2" data-bs-toggle="tooltip" data-bs-title="MySQL Database"></i>
+                            <i class="devicon-mysql-plain icon-adaptive me-2" data-bs-toggle="tooltip" data-bs-title="MySQL Database"></i>
                             <i class="devicon-redis-plain text-danger" data-bs-toggle="tooltip" data-bs-title="Redis In-Memory Store"></i>
                         </div>
                         <ul class="skill-list">
@@ -445,7 +505,7 @@
                     <div class="bento-card">
                         <div class="mono text-accent mb-3"># DEPLOYMENT_&_INFRA</div>
                         <div class="mb-3 fs-3">
-                            <i class="devicon-linux-plain text-white me-2" data-bs-toggle="tooltip" data-bs-title="Linux Server Administration (Ubuntu/Debian)"></i>
+                            <i class="devicon-linux-plain icon-adaptive me-2" data-bs-toggle="tooltip" data-bs-title="Linux Server Administration (Ubuntu/Debian)"></i>
                             <i class="devicon-nginx-plain text-success me-2" data-bs-toggle="tooltip" data-bs-title="Nginx Reverse Proxy"></i>
                             <i class="devicon-docker-plain text-primary me-2" data-bs-toggle="tooltip" data-bs-title="Docker Containers"></i>
                             <i class="devicon-git-plain text-warning" data-bs-toggle="tooltip" data-bs-title="Git Version Control"></i>
@@ -465,7 +525,7 @@
                         <div class="mono text-accent mb-3"># DOMAIN_&_SPECIFICATIONS</div>
                         <div class="mb-3 fs-3">
                             <i class="bi bi-diagram-3 text-accent me-2" data-bs-toggle="tooltip" data-bs-title="System Architecture & Flow"></i>
-                            <i class="bi bi-journal-text text-white me-2" data-bs-toggle="tooltip" data-bs-title="BRS / SRS Specifications"></i>
+                            <i class="bi bi-journal-text icon-adaptive me-2" data-bs-toggle="tooltip" data-bs-title="BRS / SRS Specifications"></i>
                             <i class="bi bi-shield-check text-info" data-bs-toggle="tooltip" data-bs-title="Auditability & Compliance"></i>
                         </div>
                         <ul class="skill-list">
@@ -575,7 +635,7 @@
                     <div class="domain-card">
                         <div class="d-flex align-items-center mb-3">
                             <i class="bi bi-boxes fs-4 text-accent me-2"></i>
-                            <h4 class="text-white mb-0 fs-5">Manufacturing</h4>
+                            <h4 class="text-primary-custom mb-0 fs-5">Manufacturing</h4>
                         </div>
                         <p class="text-secondary-custom fs-small mb-0">
                             Multi-level BOM, dynamic inventory ledgers, shop-floor production stages, and ISO calibration management with rigorous audit trails.
@@ -587,7 +647,7 @@
                     <div class="domain-card">
                         <div class="d-flex align-items-center mb-3">
                             <i class="bi bi-people fs-4 text-accent me-2"></i>
-                            <h4 class="text-white mb-0 fs-5">HR & Payroll</h4>
+                            <h4 class="text-primary-custom mb-0 fs-5">HR & Payroll</h4>
                         </div>
                         <p class="text-secondary-custom fs-small mb-0">
                             Image-verified attendance kiosks, shift & overtime modeling, leave policies, and automated end-of-month payroll computation.
@@ -599,7 +659,7 @@
                     <div class="domain-card">
                         <div class="d-flex align-items-center mb-3">
                             <i class="bi bi-database-check fs-4 text-accent me-2"></i>
-                            <h4 class="text-white mb-0 fs-5">Legacy Migration</h4>
+                            <h4 class="text-primary-custom mb-0 fs-5">Legacy Migration</h4>
                         </div>
                         <p class="text-secondary-custom fs-small mb-0">
                             Transforming 10–20 years of disparate Excel sheets and legacy records into relational models with 100% data fidelity.
@@ -611,7 +671,7 @@
                     <div class="domain-card">
                         <div class="d-flex align-items-center mb-3">
                             <i class="bi bi-lightning-charge fs-4 text-accent me-2"></i>
-                            <h4 class="text-white mb-0 fs-5">Process Automation</h4>
+                            <h4 class="text-primary-custom mb-0 fs-5">Process Automation</h4>
                         </div>
                         <p class="text-secondary-custom fs-small mb-0">
                             Replacing friction-heavy paper and manual routines with background queues, automated alert emails, and dynamic PDF reports.
@@ -667,7 +727,7 @@
         <section id="contact" class="container section-padding mb-4">
             <div class="text-center max-w-700 mx-auto reveal-on-scroll">
                 <p class="mono text-accent mb-2">07. What's Next?</p>
-                <h2 class="text-white mb-4 display-5 fw-bold">Let's Build Scalable Systems</h2>
+                <h2 class="text-primary-custom mb-4 display-5 fw-bold">Let's Build Scalable Systems</h2>
                 <p class="mb-4 text-secondary-custom lead">
                     I am actively exploring senior backend roles, technical architecture opportunities, and consulting projects that tackle complex operational challenges.
                 </p>
@@ -692,14 +752,14 @@
         <div class="container">
             <div class="mb-3 d-flex justify-content-center gap-4">
                 <a href="https://github.com/vmnayak" target="_blank" rel="noopener noreferrer"
-                    class="link-secondary text-decoration-none fs-4 hover-accent" aria-label="GitHub Profile">
+                    class="text-secondary-custom text-decoration-none fs-4 hover-accent" aria-label="GitHub Profile">
                     <i class="bi bi-github"></i>
                 </a>
                 <a href="https://linkedin.com/in/vijaykumar-nayak-b935b0130" target="_blank" rel="noopener noreferrer"
-                    class="link-secondary text-decoration-none fs-4 hover-accent" aria-label="LinkedIn Profile">
+                    class="text-secondary-custom text-decoration-none fs-4 hover-accent" aria-label="LinkedIn Profile">
                     <i class="bi bi-linkedin"></i>
                 </a>
-                <a href="mailto:hello@vijaynayak.dev" class="link-secondary text-decoration-none fs-4 hover-accent"
+                <a href="mailto:hello@vijaynayak.dev" class="text-secondary-custom text-decoration-none fs-4 hover-accent"
                     aria-label="Send Email">
                     <i class="bi bi-envelope-at"></i>
                 </a>

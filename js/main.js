@@ -1,57 +1,101 @@
 'use strict';
 
-// 1. Mobile Menu Auto-close
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-        const navbarCollapse = document.getElementById('navbarNav');
-        if (navbarCollapse.classList.contains('show')) {
-            const bsCollapse = new bootstrap.Collapse(navbarCollapse, { toggle: false });
-            bsCollapse.hide();
-        }
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Mobile Menu Auto-close on link click
+    const navLinks = document.querySelectorAll('.nav-link');
+    const navbarCollapse = document.getElementById('navbarNav');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+                const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse) || new bootstrap.Collapse(navbarCollapse, { toggle: false });
+                bsCollapse.hide();
+            }
+        });
     });
-});
 
-// 3. ScrollSpy
-const sections = document.querySelectorAll('section, header');
-const navLinks = document.querySelectorAll('.nav-link');
+    // 2. ScrollSpy for Navbar Active State
+    const sections = document.querySelectorAll('section, header');
+    const observerSpy = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                if (!id) return;
+                navLinks.forEach(link => {
+                    link.classList.remove('active-section');
+                    if (link.getAttribute('href') === '#' + id) {
+                        link.classList.add('active-section');
+                    }
+                });
+            }
+        });
+    }, { threshold: 0.25 });
 
-const observerSpy = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const id = entry.target.getAttribute('id');
-            if (!id) return;
-            navLinks.forEach(link => {
-                link.classList.remove('active-section');
-                if (link.getAttribute('href') === '#' + id) {
-                    link.classList.add('active-section');
+    sections.forEach(section => observerSpy.observe(section));
+
+    // 3. Scroll to Top Button
+    const scrollTopBtn = document.querySelector('.scroll-top');
+    if (scrollTopBtn) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 350) {
+                scrollTopBtn.classList.add('active');
+            } else {
+                scrollTopBtn.classList.remove('active');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            if (typeof lenis !== 'undefined' && lenis) {
+                lenis.scrollTo(0);
+            } else {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        });
+    }
+
+    // 4. One-Click Copy Email to Clipboard with Toast Notification
+    const copyEmailBtns = document.querySelectorAll('.copy-email-btn');
+    const copyToast = document.getElementById('copy-toast');
+
+    function showToast(message) {
+        if (!copyToast) return;
+        if (message) {
+            const span = copyToast.querySelector('span');
+            if (span) span.textContent = message;
+        }
+        copyToast.classList.add('show');
+        setTimeout(() => {
+            copyToast.classList.remove('show');
+        }, 2800);
+    }
+
+    copyEmailBtns.forEach(btn => {
+        btn.addEventListener('click', async () => {
+            const email = btn.getAttribute('data-email') || 'hello@vijaynayak.dev';
+            try {
+                if (navigator.clipboard && window.isSecureContext) {
+                    await navigator.clipboard.writeText(email);
+                } else {
+                    // Fallback for non-https / older browsers
+                    const textArea = document.createElement('textarea');
+                    textArea.value = email;
+                    textArea.style.position = 'fixed';
+                    textArea.style.opacity = '0';
+                    document.body.appendChild(textArea);
+                    textArea.focus();
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
                 }
-            });
-        }
-    });
-}, { threshold: 0.3 });
-
-sections.forEach(section => observerSpy.observe(section));
-
-// 4. Scroll to Top
-const scrollTopBtn = document.querySelector('.scroll-top');
-if (scrollTopBtn) {
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-            scrollTopBtn.classList.add('active');
-        } else {
-            scrollTopBtn.classList.remove('active');
-        }
+                showToast(`Copied ${email} to clipboard!`);
+            } catch (err) {
+                console.error('Failed to copy text: ', err);
+                showToast(`Email: ${email}`);
+            }
+        });
     });
 
-    scrollTopBtn.addEventListener('click', () => {
-        if (typeof lenis !== 'undefined') {
-            lenis.scrollTo(0) // Use Lenis for smooth scroll to top
-        } else {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    });
-}
-
-// 6. Initialize Tooltips
-const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    // 5. Initialize Bootstrap Tooltips
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+    [...tooltipTriggerList].forEach(el => new bootstrap.Tooltip(el));
+});

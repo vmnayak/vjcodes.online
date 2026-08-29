@@ -3,9 +3,11 @@
     'use strict';
 
     const phrases = [
-        '/usr/bin/vijaykumar',
-        '~/backend/engineer',
-        '/etc/python/django'
+        'python manage.py runserver --deploy',
+        'celery -A core worker -l info',
+        'docker compose up -d postgres redis',
+        '~/systems/erp_architecture.py',
+        'gunicorn config.wsgi:application -w 4'
     ];
 
     const typewriterElement = document.getElementById('typewriter-text');
@@ -14,16 +16,15 @@
     let phraseIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
-    const typingSpeed = 100;
-    const deletingSpeed = 50;
-    const pauseAfterTyping = 2000;
-    const pauseAfterDeleting = 500;
+    const typingSpeed = 85;
+    const deletingSpeed = 40;
+    const pauseAfterTyping = 2200;
+    const pauseAfterDeleting = 450;
 
     function type() {
         const currentPhrase = phrases[phraseIndex];
 
         if (isDeleting) {
-            // Delete characters
             typewriterElement.textContent = currentPhrase.substring(0, charIndex - 1);
             charIndex--;
 
@@ -35,7 +36,6 @@
             }
             setTimeout(type, deletingSpeed);
         } else {
-            // Type characters
             typewriterElement.textContent = currentPhrase.substring(0, charIndex + 1);
             charIndex++;
 
@@ -48,6 +48,6 @@
         }
     }
 
-    // Start typing after a short delay
-    setTimeout(type, 1000);
+    // Start typing after a short initial delay
+    setTimeout(type, 800);
 })();

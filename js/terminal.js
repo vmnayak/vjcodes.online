@@ -19,14 +19,14 @@
   <span class="text-accent">whoami</span>        - Display current guest session
   <span class="text-accent">clear</span>         - Clear the terminal screen`,
 
-        'summary': `Vijaykumar Nayak | <span class="text-accent">Senior Backend Engineer</span>
-• 4+ years architecting Python/Django enterprise & manufacturing ecosystems.
-• Deep expertise in data modeling, Celery workers, and legacy database migrations.
-• Proven track record delivering mission-critical ERPs as a solo/lead developer.`,
+        'summary': `Vijaykumar Nayak | <span class="text-accent">Backend Engineer & Software Developer</span>
+• 4+ years engineering Python/Django enterprise & manufacturing ecosystems.
+• Strong foundation in PostgreSQL schema design, Celery workers, and legacy database migrations.
+• Proven track record delivering mission-critical internal systems as a primary developer.`,
 
-        'skills': `<span class="text-accent">Backend:</span> Python 3.x, Django, Django REST Framework (DRF), Async Concepts
-<span class="text-accent">Databases:</span> PostgreSQL (3NF, Indexing, Triggers), MySQL, Redis Caching
-<span class="text-accent">Workers & Automation:</span> Celery, Cron Schedulers, Dynamic PDF/Excel Generation
+        'skills': `<span class="text-accent">Backend:</span> Python 3.x, Django, Django REST Framework (DRF), REST APIs
+<span class="text-accent">Databases & SQL:</span> PostgreSQL (3NF, Indexing, Transactions), MySQL, Redis Caching
+<span class="text-accent">Workers & Automation:</span> Celery, Scheduled Jobs, Dynamic PDF/Excel Generation
 <span class="text-accent">DevOps & Servers:</span> Linux (Ubuntu/Debian), Nginx, Gunicorn/Waitress, Docker`,
 
         'systems': `<span class="text-accent">1. Industrial Manufacturing ERP</span> -> Multi-tier BOM & real-time inventory ledger.
@@ -39,9 +39,10 @@ Content-Type: application/json
 
 {
   "name": "Vijaykumar Nayak",
-  "title": "Senior Backend Engineer",
+  "title": "Backend Engineer & Software Developer",
+  "stack": "Python, Django, PostgreSQL, APIs",
   "experience_years": 4,
-  "status": "Available for High-Impact Backend Roles",
+  "status": "Open for Backend Engineering Roles",
   "email": "hello@vijaynayak.dev",
   "github": "https://github.com/vmnayak",
   "linkedin": "https://linkedin.com/in/vijaykumar-nayak-b935b0130"
